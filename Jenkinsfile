@@ -1,17 +1,20 @@
 pipeline {
     agent any 
+    tools {
+    maven 'M3'
+    } 
     stages {
         stage('...clone...') { 
             steps {
                 sh "mvn clean" 
             }
         }
-        stage('deploy') { 
+        stage('test') { 
             steps {
                 sh "mvn test"
             }
         }
-        stage('test') { 
+        stage('deploy') { 
             steps {
                 sh "mvn package" 
            }
